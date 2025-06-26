@@ -10,7 +10,7 @@ user_input = st.chat_input("Ask to book or check availability...")
 
 if user_input:
     st.session_state.messages.append({"role": "user", "text": user_input})
-    response = requests.post("https://ai-calendar-booking-assistant.streamlit.app/", json={"text": user_input})
+    response = requests.post("http://localhost:8000/chat", json={"text": user_input})
     assistant_reply = response.json()["reply"]
     st.session_state.messages.append({"role": "assistant", "text": assistant_reply})
 
